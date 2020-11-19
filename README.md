@@ -5,6 +5,8 @@
  - [Windows server](winsrv/).
  - [Postgresql](postgresql/).
  - [Mysql](mysql/).
+ - [Nginx](nginx/).
+ - [Apache](apache/).
  
  
  
