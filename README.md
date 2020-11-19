@@ -1,6 +1,8 @@
  - [Cisco](cisco/).
  - [Mikrotik](mikrotik/).
+ - [Dlink](dlink/).
  - [Linux](linux/).
+ - [Windows server](winsrv/).
  - [Postgresql](postgresql/).
  - [Mysql](mysql/).
  
