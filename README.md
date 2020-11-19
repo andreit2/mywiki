@@ -1,5 +1,4 @@
-#### Приклад "[Назва посилання] (https://example.com/)" от [example1](https://example1.com/)
-
- - [Приклад cisco](cisco/).
+ - [Cisco](cisco/).
  - [Проектная работа](final/).
  
+#### "[Назва посилання] (https://example.com/)" от [example1](https://example1.com/)
