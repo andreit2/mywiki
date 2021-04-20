@@ -1,5 +1,5 @@
 Переадресація засобами html
-
+```
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 <head>
@@ -15,3 +15,4 @@ location.replace("https://taygerfoodparty.com"); // текущая страни�
 <body>
 </body>
 </html>
+```
