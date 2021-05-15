@@ -7,8 +7,8 @@ yum-config-manager --enable zfs-kmod
 yum-config-manager --disable zfs
 yum repolist --enabled | grep zfs && echo ZFS repo enabled
 yum install -y zfs
-```
-zpool create pname_pool1 mirror sdb sdc
+
+zpool create name_pool1 mirror sdb sdc
 zpoll list
 zpool status
 zpool dstroy name_pool1
@@ -19,3 +19,4 @@ zpool create raid raidz1 $PWD/disk[1-3]
 zpool create raid raidz2 $PWD/disk[1-2]
 zpool create raid raidz3 $PWD/disk[1-3] # less disks
 zpool create raid raidz3 $PWD/disk[1-5]
+```
