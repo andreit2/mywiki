@@ -19,8 +19,12 @@ zpool create raid raidz1 $PWD/disk[1-3]
 zpool create raid raidz2 $PWD/disk[1-2]
 zpool create raid raidz3 $PWD/disk[1-3] # less disks
 zpool create raid raidz3 $PWD/disk[1-5]
-
+zpool create hybrid mirror $PWD/disk[12] mirror $PWD/disk[34]
+zpool create hybrid2 raidz2 $PWD/disk[1-3] raidz2 $PWD/disk[4-6]
 zfs list
 zfs create name_pool/name_dir
+mount -t zfs
+zfs get mounted
 ls /name_pool/name_dir
+zfs set mountpoint=/home/testuser name_pool/name_dir/name_dir1
 ```
