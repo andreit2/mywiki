@@ -19,4 +19,8 @@ zpool create raid raidz1 $PWD/disk[1-3]
 zpool create raid raidz2 $PWD/disk[1-2]
 zpool create raid raidz3 $PWD/disk[1-3] # less disks
 zpool create raid raidz3 $PWD/disk[1-5]
+
+zfs list
+zfs create name_pool/name_dir
+ls /name_pool/name_dir
 ```
