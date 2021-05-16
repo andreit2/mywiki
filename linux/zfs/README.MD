@@ -1,4 +1,4 @@
-Install zfs in Centos
+Шаги установки в CentOS 8
 ```
 yum install -y yum-utils
 sudo yum -y install http://download.zfsonlinux.org/epel/zfs-relea
@@ -7,7 +7,9 @@ yum-config-manager --enable zfs-kmod
 yum-config-manager --disable zfs
 yum repolist --enabled | grep zfs && echo ZFS repo enabled
 yum install -y zfs
-
+```
+Создание пула устройств хранения данных ZFS
+```
 zpool create name_pool1 mirror sdb sdc
 zpoll list
 zpool status
@@ -25,13 +27,47 @@ zfs list
 zfs create name_pool/name_dir
 zfs destroy name_pool/name_dir
 ```
+Скорость от типа pool
+RAID-0 (fastest)
+RAID-1
+RAIDZ-1
+RAIDZ-2
+RAIDZ-3 (slowest)
+```
+zpool create hybrid mirror $PWD/disk[12] mirror $PWD/disk[34]
+zpool create hybrid2 raidz2 $PWD/disk[1-3] raidz2 $PWD/disk[4-6]
+```
+Создание pool с SLOG и L2LARC
+Создать сразу
+```
+zpool create storage mirror sdb sdc \
+  log mirror nvme0n1 nvme0n2 \
+  cache nvme0n3 nvme0n4
+```
+Добавить позже
+```
+zpool create storage mirror sdb sdc
+zpool add storage cache nvme0n3 nvme0n4 # L2ARC
+zpool add storage log mirror nvme0n1 nvme0n2 # SLOG
+```
+Создание файловой системы
+ФС создается поверх пула
+```
+zfs create storage/userdir
+zfs create storage/data
+```
+ФС Может быть вложенной
+```
+zfs create storage/data/video
+zfs create storage/data/music
+```
 смотрим что примонтировано, по умолчание файловая система монтируется в директори пула 
 ```
 mount -t zfs
 zfs get mounted
 ls /name_pool/name_dir
 ```
-поменять через параметр:mountpoint директория должна быть пустой
+поменять через параметр:mountpoint, директория должна быть пустой
 ```
 zfs set mountpoint=/home/testuser name_pool/name_dir/name_dir1
 ```
@@ -61,7 +97,6 @@ zfs set recordsize=1M storage/data/movies
 zfs set recordsize=64K storage/data/torrents
 ```
 Наследование параметров
-
 ```
 zfs set checksum=sha256 storage/data/movies
 zfs get checksum
