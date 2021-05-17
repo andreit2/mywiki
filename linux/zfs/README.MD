@@ -1,12 +1,13 @@
 Шаги установки в CentOS 8
 ```
-yum install -y yum-utils
+sudo yum install -y yum-utils
+sudo yum install langpacks-en glibc-all-langpacks -y
 sudo yum -y install http://download.zfsonlinux.org/epel/zfs-relea
 gpg --quiet --with-fingerprint /etc/pki/rpm-gpg/RPM-GPG-KEY-zfson
-yum-config-manager --enable zfs-kmod
-yum-config-manager --disable zfs
-yum repolist --enabled | grep zfs && echo ZFS repo enabled
-yum install -y zfs
+sudo yum-config-manager --enable zfs-kmod
+sudo yum-config-manager --disable zfs
+sudo yum repolist --enabled | grep zfs && echo ZFS repo enabled
+sudo yum install -y zfs
 ```
 Создание пула устройств хранения данных ZFS
 ```
