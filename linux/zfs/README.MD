@@ -8,7 +8,7 @@ sudo yum-config-manager --enable zfs-kmod
 sudo yum-config-manager --disable zfs
 sudo yum repolist --enabled | grep zfs && echo ZFS repo enabled
 sudo yum install -y zfs
-modprobe zfs
+sudo modprobe zfs
 ```
 Создание пула устройств хранения данных ZFS
 ```
