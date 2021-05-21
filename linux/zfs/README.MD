@@ -124,3 +124,78 @@ zfs set compress=lz4 pool/fs
 zfs set compress=lzjb pool/fs
 zfs set compress=zle pool/fs
 ```
+Дедупликация
+```
+zfs create storage/src/dedup
+zfs get dedup storage/src/dedup
+zfs set dedup=on storage/src/dedup
+cp -R /storage/src/compressed/* /storage/src/dedup/
+```
+Пример переноса дисков между
+хостами
+Отключаем диски
+```
+zpool export storage
+zpool status
+```
+На соседнем хосте (пример из файлов поэтому -d
+```
+zpool import -d ${PWD}/zpoolexport/
+zpool import -d ${PWD}/zpoolexport/ storage
+```
+####Пример работы cо snapshot
+Создать снимок
+```
+zfs snapshot storage/data/music@snap001
+```
+Список снимков
+```
+zfs list -t snapshot
+```
+Удалить снимок
+```
+zfs destroy storage/data/music@snap001
+```
+#### Восстанавливаем файлы из
+snapshot
+Заполняем данными
+```
+zfs create storage/text
+cp War_and_Peace.txt /storage/text/
+```
+Создаем снимок
+```
+zfs snapshot storage/text@copy001
+rm /storage/text/War_and_Peace.txt
+```
+Восстанавливаем файлы из снимка
+```
+zfs rollback storage/text@copy001
+ls /storage/text
+```
+#### Пример переноса snapshots между
+хостами
+Хост номер 1
+```
+zfs send storage/text@copy001 > snapshot
+```
+Хост номер 2Восстановление
+```
+zfs receive storage/data/text2 < snapshot
+```
+#### Восстановление
+Диск вышел из строя
+```
+dd if=/dev/zero of=/dev/sdb
+zpool status
+```
+Запустим процедуру проверки
+```
+zpool scrub
+zpool status
+```
+Заменим сбойный диск
+```
+zpool replace storage sdb sdd
+```
+
