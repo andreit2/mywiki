@@ -78,3 +78,8 @@ sudo nano /etc/fstab
 ...
 192.168.1.12:/mnt/storage  /mnt/nfs-share     nfs    defaults    0 0
 ```
+### Утилиты мониторинга 
+yum install bpf
+./mountsnoop
+mount | grep nfs
+rpcinfo -p
