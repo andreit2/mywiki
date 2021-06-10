@@ -19,3 +19,7 @@ wget http://download.virtualbox.org/virtualbox/6.0.4/Oracle_VM_VirtualBox_Extens
 
 sudo VBoxManage extpack install Oracle_VM_VirtualBox_Extension_Pack-6.0.4.vbox-extpack
 ```
+show me list Virtual Machine
+```
+vboxmanage list vms
+```
