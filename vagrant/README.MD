@@ -29,6 +29,7 @@ vagrant up my
 vagrant box remove my
 ```
 ```
+vagrant cloud provider create andreit/hw05c virtualbox 1
 vagrant cloud auth login
-vagrant cloud provider upload andreit/hw05 virtualbox 1 nfss.box
+vagrant cloud provider upload andreit/hw05s virtualbox 1 nfss.box
 ```
