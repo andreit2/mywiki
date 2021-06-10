@@ -18,9 +18,17 @@ vagrant global-status
 
 vagrant scp zfs_task1.tar.gz server:/home/vagrant
 ```
+
 ```
+vboxmanage list vms
 vagrant package --base [machine name as it shows in virtual box] --output /Users/myuser/Documents/Workspace/my.box
 vagrant box add my my.box
-
-
+vagrant box list
+vagrant halt my
+vagrant up my
+vagrant box remove my
+```
+```
+vagrant cloud auth login
+vagrant cloud provider upload andreit/hw05 virtualbox 1 nfss.box
 ```
