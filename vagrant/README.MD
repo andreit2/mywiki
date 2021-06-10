@@ -18,3 +18,9 @@ vagrant global-status
 
 vagrant scp zfs_task1.tar.gz server:/home/vagrant
 ```
+```
+vagrant package --base [machine name as it shows in virtual box] --output /Users/myuser/Documents/Workspace/my.box
+vagrant box add my my.box
+
+
+```
