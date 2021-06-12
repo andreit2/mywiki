@@ -22,4 +22,7 @@ sudo VBoxManage extpack install Oracle_VM_VirtualBox_Extension_Pack-6.0.4.vbox-e
 show me list Virtual Machine
 ```
 vboxmanage list vms
+VBoxManage list hdds
+VBoxManage modifyvm <Virtual Machine Name or UUID> —hda none
+VBoxManage unregistervm <Virtual Machine Name or UUID> --delete # delete VM
 ```
