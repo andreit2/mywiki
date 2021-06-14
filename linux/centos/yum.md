@@ -14,3 +14,7 @@ How to see into rpm file
 ```
 rpm2cpio <rpm_file> | cpio -idmv
 ```
+How to install rpm package
+```
+rpm -i <rpm_file>
+```
