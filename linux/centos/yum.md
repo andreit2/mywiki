@@ -17,7 +17,8 @@ rpm2cpio <rpm_file> | cpio -idmv
 How to install rpm package
 ```
 rpm -i <rpm_file>
-```
-```
 rpm -q --scripts <rpm_name_package> # for example rpm -q --scripts nginx
+rpm -q nginx
+rpm -qi nginx 
+rpm -ql ngix # show all files
 ```
