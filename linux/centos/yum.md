@@ -18,3 +18,6 @@ How to install rpm package
 ```
 rpm -i <rpm_file>
 ```
+```
+rpm -q --scripts <rpm_name_package> # for example rpm -q --scripts nginx
+```
