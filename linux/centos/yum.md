@@ -33,4 +33,12 @@ rpm -Vv nginx # shows modified files
   G - group 
   M - mode including permissions and file type
   ? - file could not be read
+db_verify /var/lib/rpm/Packages
+rpm --rebuilddb
+yum clean all
+
+yum instal rpmdevtools rpm-build
+
+yumdownloader --source redis  
+
 ```
