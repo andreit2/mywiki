@@ -39,6 +39,7 @@ yum clean all
 
 yum instal rpmdevtools rpm-build
 
-yumdownloader --source redis  
+yumdownloader --source redis
+rpm -ihv redis.el2.src.rpm
 
 ```
