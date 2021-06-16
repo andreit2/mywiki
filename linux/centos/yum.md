@@ -10,6 +10,34 @@ Install Extra Packages for Enterprise Linux (EPEL)
 ```
 yum install -y epel-release
 ```
+```
+yum install
+yum search
+yum update
+yum downgrade # откат до версии
+yum check-update 
+yum remove
+yum info
+yum provides
+yum shell
+yum grouplist
+yum groupinfo
+yum history
+yum history list
+yum history info <number of record>
+yum history undo <number of record>
+yum-config-manager -add-repo URL
+yum-config-manager --enable reponame
+yum-config-manager --disable reponame
+yum updateinfo list security all
+yum updateinfo list security installed
+yum -y update-security
+yum update-minimal -security -y
+yum update -cve <CVE>
+yum updateinfo list cves
+yum updateinfo list
+yum info-sec
+```
 How to see into rpm file 
 ```
 rpm2cpio <rpm_file> | cpio -idmv
@@ -37,9 +65,21 @@ db_verify /var/lib/rpm/Packages
 rpm --rebuilddb
 yum clean all
 
-yum instal rpmdevtools rpm-build
+yum instal rpmdevtools rpm-build yum-utils
 
 yumdownloader --source redis
 rpm -ihv redis.el2.src.rpm
-
+rpmbuild -bb /rpmbuild/SPECS/redis.spec
+yum-builddep redis -y
+yum-builddep <package|specfile>
 ```
+Свой репозиторий
+```
+sudo yum install createrepo
+sudo mkdir -p /repos/CentOS/7/
+sudo createrepo /repos/CentOS/7/
+rsync -avz rsync://mirror.truenetwork.ru/centos/7.5.1804/repos/CentOS/7/
+[local-base]
+name=Local-Base
+baseurl=file:///repos/CentOS/7/$basesearch/
+enabled=0
