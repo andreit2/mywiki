@@ -83,3 +83,7 @@ rsync -avz rsync://mirror.truenetwork.ru/centos/7.5.1804/repos/CentOS/7/
 name=Local-Base
 baseurl=file:///repos/CentOS/7/$basesearch/
 enabled=0
+```
+```
+docker run -name nginx -v /srv/nginx/:/usr/share/nginx/html/ -p 80:80 -d nginx
+```
