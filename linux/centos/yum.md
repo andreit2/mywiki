@@ -64,7 +64,7 @@ rpm -Vv nginx # shows modified files
 db_verify /var/lib/rpm/Packages
 rpm --rebuilddb
 yum clean all
-
+yum repolist
 yum instal rpmdevtools rpm-build yum-utils
 
 yumdownloader --source redis
