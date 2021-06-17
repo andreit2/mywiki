@@ -1,1 +1,1 @@
-![Devops roadmap](/mywiki/devops/devops.jpg)
+![Devops roadmap](/devops.png)
