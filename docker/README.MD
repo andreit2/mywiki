@@ -18,4 +18,10 @@ docker logs <id container>
 docker logs -f <id container>
 docker inspect <id container>
 docker exec -it <id container> bash
+docker stop <id container>
+docker rm $(docker ps -aq)
+docker build -f Dockerfile2 -t andreit/test:0.1 .
+docker tag nginx:stable-alpine nginx:rbm-dkr-07
+docker login --username andreit2
+docker push andreit2/otus:tagname
 ```
