@@ -13,3 +13,9 @@ Add user to the docker group
 ```
 sudo usermod -aG docker $USER
 ```
+```
+docker logs <id container>
+docker logs -f <id container>
+docker inspect <id container>
+docker exec -it <id container> bash
+```
