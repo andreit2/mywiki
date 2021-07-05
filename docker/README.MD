@@ -9,3 +9,7 @@ sudo systemctl start docker
 ```
 docker stats
 ```
+Add user to the docker group
+```
+sudo usermod -aG docker $USER
+```
