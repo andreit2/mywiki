@@ -9,3 +9,4 @@ ssh-keygen -t RSA -N mypassword -f ~/.ssh/andreitgighub
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/github_stand
 ```
+`https://dev.to/josephmidura/how-to-manage-multiple-ssh-key-pairs-1ik`
